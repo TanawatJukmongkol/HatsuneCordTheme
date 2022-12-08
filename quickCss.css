@@ -64,10 +64,12 @@
     z-index: 1000;
     transition: all .25s ease .1s;
 }
-.sidebar-1tnWFu:hover {
+.sidebar-1tnWFu:hover,
+.sidebar-1tnWFu:focus-within {
     width: 240px;
 }
-.sidebar-1tnWFu:hover.sidebar-1tnWFu::after {
+.sidebar-1tnWFu:hover.sidebar-1tnWFu::after,
+.sidebar-1tnWFu:focus-within.sidebar-1tnWFu::after {
     right: calc(var(--release-width) * -1);
     width: var(--release-width);
     opacity: 0;
