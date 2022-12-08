@@ -49,24 +49,25 @@
     position: relative;
     width: var(--sidebar-tab);
     transition: width .25s ease .1s;
+}
+.sidebar-1tnWFu nav,
+.panels-3wFtMD {
     overflow: hidden;
 }
-.sidebar-1tnWFu::after {
+.sidebar-1tnWFu::before {
     position: absolute;
     content: "";
     right: 0;
     width: var(--sidebar-tab);
     height: 100%;
     background: var(--background-expanding-tab);
-    z-index: 1000;
     filter: invert(.06);
+    z-index: 1000;
 }
 .sidebar-1tnWFu:hover {
     width: 240px;
-    max-width: 240px;
-    overflow: visible;
 }
-.sidebar-1tnWFu:hover.sidebar-1tnWFu::after {
+.sidebar-1tnWFu:hover.sidebar-1tnWFu::before {
     right: calc(var(--release-width) * -1);
     width: var(--release-width);
     opacity: 0;
