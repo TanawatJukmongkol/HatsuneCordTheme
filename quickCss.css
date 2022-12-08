@@ -13,12 +13,12 @@
     --background-primary: unset;
     --background-secondary: rgba(var(--background-tint), max(calc(var(--transparency) / 2), var(--min-transparency)));
     --background-secondary-alt: rgba(var(--background-tint), max(calc(var(--transparency) / 2 + .1), var(--min-transparency)));
-    --background-tertiary: rgba(var(--background-tint), max(calc(var(--transparency) / 4 + .1, var(--min-transparency))));
+    --background-tertiary: rgba(var(--background-tint), max(calc(var(--transparency) / 1.5 + .1, var(--min-transparency))));
     --background-expanding-tab: rgba(var(--background-tint), 1);
     --background-modifier-accent: none;
     /* sidebar resize */
     --sidebar-tab: 10px;
-    --release-width: 20px;
+    --release-width: 15px;
 }
 
 /* styles the scrollbar */
@@ -41,7 +41,7 @@
 
 /* sets the background tint and transparency */
 #app-mount .layers-OrUESM {
-    background: rgba(var(--background-tint), max(var(--transparency), 1));
+    background: rgba(var(--background-tint), max(var(--transparency), var(--min-transparency)));
 }
 
 /* sidebar resize */
@@ -54,20 +54,20 @@
 .panels-3wFtMD {
     overflow: hidden;
 }
-.sidebar-1tnWFu::before {
+.sidebar-1tnWFu::after {
     position: absolute;
     content: "";
     right: 0;
     width: var(--sidebar-tab);
     height: 100%;
     background: var(--background-expanding-tab);
-    filter: invert(.06);
     z-index: 1000;
+    transition: all .25s ease .1s;
 }
 .sidebar-1tnWFu:hover {
     width: 240px;
 }
-.sidebar-1tnWFu:hover.sidebar-1tnWFu::before {
+.sidebar-1tnWFu:hover.sidebar-1tnWFu::after {
     right: calc(var(--release-width) * -1);
     width: var(--release-width);
     opacity: 0;
