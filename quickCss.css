@@ -16,6 +16,9 @@
     --background-tertiary: rgba(var(--background-tint), max(calc(var(--transparency) / 4 + .1, var(--min-transparency))));
     --background-expanding-tab: rgba(var(--background-tint), 1);
     --background-modifier-accent: none;
+    /* sidebar resize */
+    --sidebar-tab: 10px;
+    --release-width: 20px;
 }
 
 /* styles the scrollbar */
@@ -44,15 +47,15 @@
 /* sidebar resize */
 .sidebar-1tnWFu {
     position: relative;
-    width: 10px;
-    transition: width .25s;
+    width: var(--sidebar-tab);
+    transition: width .25s ease .1s;
     overflow: hidden;
 }
-.sidebar-1tnWFu::before {
+.sidebar-1tnWFu::after {
     position: absolute;
     content: "";
     right: 0;
-    width: 10px;
+    width: var(--sidebar-tab);
     height: 100%;
     background: var(--background-expanding-tab);
     z-index: 1000;
@@ -60,7 +63,11 @@
 }
 .sidebar-1tnWFu:hover {
     width: 240px;
+    max-width: 240px;
+    overflow: visible;
 }
-.sidebar-1tnWFu:hover.sidebar-1tnWFu::before {
-    display: none;
+.sidebar-1tnWFu:hover.sidebar-1tnWFu::after {
+    right: calc(var(--release-width) * -1);
+    width: var(--release-width);
+    opacity: 0;
 }
