@@ -1,0 +1,66 @@
+/* use the variables to style the app */
+:root {
+    --background: url("https://i.imgur.com/SkUPBGp.png");
+    --background-filter: blur(4.2px);
+    --background-tint: 0, 25, 25;
+    /* gives the background a little bit of color */
+    --accent-color: 200, 250, 250;
+    /* sets the accent color of the app */
+    --transparency: .69;
+    /* master transparency */
+    --min-transparency: .42;
+
+    --background-primary: unset;
+    --background-secondary: rgba(var(--background-tint), max(calc(var(--transparency) / 2), var(--min-transparency)));
+    --background-secondary-alt: rgba(var(--background-tint), max(calc(var(--transparency) / 2 + .1), var(--min-transparency)));
+    --background-tertiary: rgba(var(--background-tint), max(calc(var(--transparency) / 4 + .1, var(--min-transparency))));
+    --background-expanding-tab: rgba(var(--background-tint), 1);
+    --background-modifier-accent: none;
+}
+
+/* styles the scrollbar */
+::-webkit-scrollbar,
+::-webkit-scrollbar-track {
+    background: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--accent-color), max(calc(var(--transparency) / 2), var(--min-transparency))) !important;
+}
+
+/* sets the background image and blur the background */
+#app-mount .bg-1QIAus {
+    background-image: var(--background);
+    background-position: center;
+    background-size: cover;
+    filter: var(--background-filter);
+}
+
+/* sets the background tint and transparency */
+#app-mount .layers-OrUESM {
+    background: rgba(var(--background-tint), max(var(--transparency), 1));
+}
+
+/* sidebar resize */
+.sidebar-1tnWFu {
+    position: relative;
+    width: 10px;
+    transition: width .25s;
+    overflow: hidden;
+}
+.sidebar-1tnWFu::before {
+    position: absolute;
+    content: "";
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: var(--background-expanding-tab);
+    z-index: 1000;
+    filter: invert(.06);
+}
+.sidebar-1tnWFu:hover {
+    width: 240px;
+}
+.sidebar-1tnWFu:hover.sidebar-1tnWFu::before {
+    display: none;
+}
