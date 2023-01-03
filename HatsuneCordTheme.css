@@ -21,6 +21,8 @@
     /* sidebar resize */
     --sidebar-tab: 10px;
     --release-width: 15px;
+    --primary-dark-630: rgba(12, 12, 12, 0.5) !important;
+    --primary-dark-800: rgba(26, 26, 26, 0.822) !important;
 }
 
 /* styles the scrollbar */
@@ -75,4 +77,15 @@
     right: calc(var(--release-width) * -1);
     width: var(--release-width);
     opacity: 0;
+}
+
+.children-3xh0VB::after {
+    display: none;
+}
+
+.container-ZMc96U,
+.channelHeader-DFRX8q,
+.messages-23can0 {
+    --background-primary: rgba(26, 26, 26, 0.329);
+    backdrop-filter: blur(1.2px);
 }
